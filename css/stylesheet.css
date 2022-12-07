@@ -1,0 +1,261 @@
+/* line 8, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 16, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+body {
+  margin: 0;
+}
+
+/* line 26, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* line 45, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* line 57, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* line 66, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+[hidden],
+template {
+  display: none;
+}
+
+/* line 75, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+a {
+  background: transparent;
+}
+
+/* line 82, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* line 91, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 98, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 106, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* line 114, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* line 122, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* line 130, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 137, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 145, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 149, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 157, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+img {
+  border: 0;
+}
+
+/* line 164, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 172, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/* line 179, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/* line 188, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+pre {
+  overflow: auto;
+}
+
+/* line 195, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* line 214, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+/* line 227, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+button {
+  overflow: visible;
+}
+
+/* line 237, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/* line 249, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* line 260, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/* line 268, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 278, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+input {
+  line-height: normal;
+}
+
+/* line 284, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+*
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* line 300, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* line 310, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 322, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 330, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/* line 340, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+legend {
+  border: 0;
+  padding: 0;
+}
+
+/* line 348, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 356, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/* line 364, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 369, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+td,
+th {
+  padding: 0;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
