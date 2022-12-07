@@ -12,10 +12,19 @@
 // Page Load
 // ==========================================================================
 $(document).ready(function(){
-    
+        fetch('https://picsum.photos/200/300')
+        .then((response) => {
+            console.log(response);
+            $("h1").after(`<img src="${response.url}" alt="">`);
+            const imageID = response.headers.get("picsum-id");
+            $("img").after(`<p>${imageID}</p>`)
+            $("p").after(`<img src="https://picsum.photos/id/${imageID}/200/300" alt="">`)
+        });
+      
 });
 
 
 // ==========================================================================
 // Testing
 // ==========================================================================
+

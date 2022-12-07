@@ -258,4 +258,31 @@ th {
   padding: 0;
 }
 
+/* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+.wrapper {
+  padding: 15px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  .wrapper {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  .wrapper {
+    max-width: 970px;
+  }
+}
+
+@media (min-width: 1260px) {
+  /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  .wrapper {
+    max-width: 1200px;
+  }
+}
+
 /*# sourceMappingURL=stylesheet.css.map */
