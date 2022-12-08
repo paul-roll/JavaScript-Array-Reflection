@@ -285,4 +285,20 @@ th {
   }
 }
 
+/* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* line 8, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.flex-container > div {
+  flex: 1 1;
+}
+
+/* line 11, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.flex-container .flex-left {
+  flex-grow: 0;
+}
+
 /*# sourceMappingURL=stylesheet.css.map */

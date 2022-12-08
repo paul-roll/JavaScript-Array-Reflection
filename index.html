@@ -8,13 +8,30 @@
     <link rel="stylesheet" href="css/stylesheet.css">
   </head>
 
-  <main>
-    <div class="wrapper">
-      <h1>Placeholder</h1>
-    </div>
-  </main>
-
   <body>
+    
+    <main>
+      <div class="wrapper">
+        <div class="flex-container">
+          <div class="flex-left">
+            <h1>Left</h1>
+            <div id="left"></div>
+            <form id="form">
+              <label for="email">Email: </label>
+              <!-- <input id="email" type="email"> -->
+              <input id="email" type="text">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div>
+            <h1>Right</h1>
+            <div id="right"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/javascript.js"></script>
   </body>

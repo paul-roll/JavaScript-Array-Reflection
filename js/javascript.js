@@ -2,7 +2,7 @@
 // Variables
 // ==========================================================================
 
-const imageUrlToBase64 = async url => {
+const urlToArray = async url => {
     const response = await fetch(url);
     const blob = await response.blob();
     return new Promise((onSuccess, onError) => {
@@ -17,20 +17,69 @@ const imageUrlToBase64 = async url => {
     });
 };
 
+let emails = [];
+let images = [];
+
 
 // ==========================================================================
 // Functions
 // ==========================================================================
 
-async function  getImage() {
-    return base64 = await imageUrlToBase64('https://picsum.photos/200/300');
+async function getImage() {
+    const array = await urlToArray('https://picsum.photos/100/100');
+    let html = "";
+    html += `<img src="${array.image}" alt="">`;
+    html += `<p>Image ID: <span id="imageID">${array.id}</span></p>`;
+    $("#left").html(html);
 }
 
-async function showImage(base64) {
-    const array = await base64;
-    $("h1").after(`<img src=" ${array.image}" alt="">`);
-    $("img").after(`<p>Image ID: ${array.id}`);
+function displayArrays() {
+    let html = "";
+
+    for (let emailIndex = 0; emailIndex < emails.length; emailIndex++) {
+        html += `<h2>${emails[emailIndex]}</h2>`;
+        html += `<div class="flex-container">`;
+        for (let imageIndex = 0; imageIndex < images[emailIndex].length; imageIndex++) {
+            html += `<img src="https://picsum.photos/id/${images[emailIndex][imageIndex]}/100/100">`;
+        }
+        html += `</div>`;
+    }
+    $("#right").html(html);
 }
+
+// Function: take string, return id of that email or -1 if not found.
+function getEmail(email) {
+    if (!email) {
+        email = "NULL";
+    }
+    for (let i = 0; i < emails.length; i++) {
+        if (emails[i] === email) {
+            return i;
+        }
+    }
+    emails.push(email);
+    images.push([]);
+    return emails.length - 1;
+}
+
+function addImage(email, image) {
+    images[email].push(image);
+}
+
+
+// ==========================================================================
+// Events
+// ====================================================================
+
+$("#form").submit(async function(e) {
+    e.preventDefault();
+    $(`#form input[type="submit"]`).prop( "disabled", true );
+    addImage(getEmail($("#form #email").val()), $("#imageID").text());
+    // $("#form #email").val("");
+    displayArrays();
+    await getImage();
+    $(`#form input[type="submit"]`).prop( "disabled", false );
+});
 
 
 // ==========================================================================
@@ -43,7 +92,8 @@ async function showImage(base64) {
 // ==========================================================================
 
 $(document).ready(function(){     
-    showImage(getImage());
+    getImage();
+    displayArrays();
 });
 
 
