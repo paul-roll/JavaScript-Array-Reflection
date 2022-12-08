@@ -16,10 +16,13 @@
           <div class="flex-left">
             <h1>Left</h1>
             <div id="left"></div>
-            <form id="form">
+            <form id="form" autocomplete="off">
               <label for="email">Email: </label>
               <!-- <input id="email" type="email"> -->
-              <input id="email" type="text">
+              <input list="emailList" id="email" type="text">
+              <datalist id="emailList">
+              </datalist>
+
               <input type="submit" value="Submit" disabled>
             </form>
           </div>

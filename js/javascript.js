@@ -33,6 +33,7 @@ let array = sessionStorage.getObj("array") || {
     "images": [],
 };
 
+
 // ==========================================================================
 // Functions
 // ==========================================================================
@@ -54,9 +55,9 @@ function displayArrays() {
 
     for (let emailIndex = 0; emailIndex < array.emails.length; emailIndex++) {
         html += `<h2>${array.emails[emailIndex]}</h2>`;
-        html += `<div class="flex-container">`;
+        html += `<div id="${emailIndex}" class="flex-container">`;
         for (let imageIndex = 0; imageIndex < array.images[emailIndex].length; imageIndex++) {
-            html += `<img src="${array.images[emailIndex][imageIndex]}">`;
+            html += `<img id="${imageIndex}" src="${array.images[emailIndex][imageIndex]}">`;
         }
         html += `</div>`;
     }
@@ -76,6 +77,7 @@ function getEmail(email) {
     array.emails.push(email);
     array.images.push([]);
     sessionStorage.setObj("array", array);
+    fillDropdown();
     return array.emails.length - 1;
 }
 
@@ -84,16 +86,35 @@ function addImage(email, image) {
     sessionStorage.setObj("array", array);
 }
 
+function fillDropdown() {
+    html = "";
+    for (let i = 0; i < array.emails.length; i++) {
+        html += `<option value="${array.emails[i]}">`;
+    }
+    $("#emailList").html(html);
+}
 
 // ==========================================================================
 // Events
 // ====================================================================
 
+$("#right").on("click", function(e) {
+    if (e.target.nodeName === "IMG") {
+        array.images[e.target.parentNode.id].splice(e.target.id, 1);
+        if (!array.images[e.target.parentNode.id].length) {
+            array.emails.splice(e.target.parentNode.id, 1);
+            array.images.splice(e.target.parentNode.id, 1);
+            fillDropdown();
+        }
+        sessionStorage.setObj("array", array);
+        displayArrays();
+    } 
+});
+
 $("#form").submit(async function(e) {
     e.preventDefault();
     $(`#form input[type="submit"]`).prop( "disabled", true );
     addImage(getEmail($("#form #email").val()),  currentImage.image );
-    // $("#form #email").val("");
     displayArrays();
     await getImage();
     $(`#form input[type="submit"]`).prop( "disabled", false );
@@ -113,6 +134,7 @@ $(document).ready(async function(){
     await getImage();
     $(`#form input[type="submit"]`).prop( "disabled", false );
     displayArrays();
+    fillDropdown();
 });
 
 
