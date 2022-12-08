@@ -11,6 +11,9 @@ Storage.prototype.getObj = function(key) {
 
 const urlToArray = async url => {
     const response = await fetch(url);
+    if (!response.ok) {
+        return {"id":-1, "image":"img/error.jpg"};
+    }
     const blob = await response.blob();
     return new Promise((onSuccess, onError) => {
         try {
@@ -27,7 +30,6 @@ const urlToArray = async url => {
 let currentImage;
 
 
-// sessionStorage.removeItem("array");
 let array = sessionStorage.getObj("array") || {
     "emails": [],
     "images": [],
@@ -142,3 +144,4 @@ $(document).ready(async function(){
 // Testing
 // ==========================================================================
 
+// sessionStorage.removeItem("array");
