@@ -1,6 +1,13 @@
 // ==========================================================================
-// Variables
+// Variables and Prototypes
 // ==========================================================================
+
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
 
 const urlToArray = async url => {
     const response = await fetch(url);
@@ -17,30 +24,39 @@ const urlToArray = async url => {
     });
 };
 
-let emails = [];
-let images = [];
+let currentImage;
 
+
+// sessionStorage.removeItem("array");
+let array = sessionStorage.getObj("array") || {
+    "emails": [],
+    "images": [],
+};
 
 // ==========================================================================
 // Functions
 // ==========================================================================
 
 async function getImage() {
-    const array = await urlToArray('https://picsum.photos/100/100');
+    currentImage = await urlToArray('https://picsum.photos/100/100');
+    setImage();
+}
+
+function setImage() {
     let html = "";
-    html += `<img src="${array.image}" alt="">`;
-    html += `<p>Image ID: <span id="imageID">${array.id}</span></p>`;
+    html += `<img id="currentImage" src="${currentImage.image}" alt="">`;
+    html += `<p>Image ID: <span id="imageID">${currentImage.id}</span></p>`;
     $("#left").html(html);
 }
 
 function displayArrays() {
     let html = "";
 
-    for (let emailIndex = 0; emailIndex < emails.length; emailIndex++) {
-        html += `<h2>${emails[emailIndex]}</h2>`;
+    for (let emailIndex = 0; emailIndex < array.emails.length; emailIndex++) {
+        html += `<h2>${array.emails[emailIndex]}</h2>`;
         html += `<div class="flex-container">`;
-        for (let imageIndex = 0; imageIndex < images[emailIndex].length; imageIndex++) {
-            html += `<img src="https://picsum.photos/id/${images[emailIndex][imageIndex]}/100/100">`;
+        for (let imageIndex = 0; imageIndex < array.images[emailIndex].length; imageIndex++) {
+            html += `<img src="${array.images[emailIndex][imageIndex]}">`;
         }
         html += `</div>`;
     }
@@ -52,18 +68,20 @@ function getEmail(email) {
     if (!email) {
         email = "NULL";
     }
-    for (let i = 0; i < emails.length; i++) {
-        if (emails[i] === email) {
+    for (let i = 0; i < array.emails.length; i++) {
+        if (array.emails[i] === email) {
             return i;
         }
     }
-    emails.push(email);
-    images.push([]);
-    return emails.length - 1;
+    array.emails.push(email);
+    array.images.push([]);
+    sessionStorage.setObj("array", array);
+    return array.emails.length - 1;
 }
 
 function addImage(email, image) {
-    images[email].push(image);
+    array.images[email].push(currentImage.image);
+    sessionStorage.setObj("array", array);
 }
 
 
@@ -74,7 +92,7 @@ function addImage(email, image) {
 $("#form").submit(async function(e) {
     e.preventDefault();
     $(`#form input[type="submit"]`).prop( "disabled", true );
-    addImage(getEmail($("#form #email").val()), $("#imageID").text());
+    addImage(getEmail($("#form #email").val()),  currentImage.image );
     // $("#form #email").val("");
     displayArrays();
     await getImage();
@@ -91,8 +109,9 @@ $("#form").submit(async function(e) {
 // Page Load
 // ==========================================================================
 
-$(document).ready(function(){     
-    getImage();
+$(document).ready(async function(){     
+    await getImage();
+    $(`#form input[type="submit"]`).prop( "disabled", false );
     displayArrays();
 });
 
