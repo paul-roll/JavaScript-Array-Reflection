@@ -38,13 +38,15 @@ let array = sessionStorage.getObj("array") || [];
 // ==========================================================================
 
 async function getImage() {
+    $(`#form input[type="submit"]`).prop( "disabled", true );
     currentImage = await urlToArray('https://picsum.photos/100/100');
     setImage();
+    $(`#form input[type="submit"]`).prop( "disabled", false );
 }
 
 function setImage() {
     let html = "";
-    html += `<img id="currentImage" src="${currentImage.image}" alt="">`;
+    html += `<img class="draggable" id="currentImage" src="${currentImage.image}" alt="">`;
     html += `<p>Image ID: <span id="imageID">${currentImage.id}</span></p>`;
     $("#left").html(html);
 }
@@ -56,7 +58,7 @@ function displayArrays() {
         html += `<h2>${array[emailIndex].email}</h2>`;
         html += `<div id="${emailIndex}" class="flex-container">`;
         for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
-            html += `<img id="${imageIndex}" src="${array[emailIndex].images[imageIndex]}">`;
+            html += `<img class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">`;
         }
         html += `</div>`;
     }
@@ -80,7 +82,7 @@ function getEmail(email) {
 }
 
 function addImage(email, image) {
-    array[email].images.push(currentImage.image);
+    array[email].images.push(currentImage);
     sessionStorage.setObj("array", array);
 }
 
@@ -102,34 +104,46 @@ function deleteEmail(id) {
 // ====================================================================
 
 let dragged;
-$("#right").on("dragstart", function(e) {
-    dragged = [];
-    dragged[0] = e.target.parentNode.id;
-    dragged[1] = e.target.id;
+$("body").on("dragstart", function(e) {
+    if ( $(e.target).hasClass("draggable") ) {
+        dragged = e;
+    }
 });
 
-$("#right").on("dragover", function(e) {
+$("body").on("dragover", function(e) {
     e.preventDefault();  
 });
 
-$("#right").on("drop", function(e) {
-    if ( (dragged) && (e.target.nodeName === "IMG") ) {
-        console.log( `${dragged[0]}-${dragged[1]} to ${e.target.parentNode.id}-${e.target.id}` );
+$("body").on("drop", function(e) {
+    if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target) ) {
 
-
-        if ( e.target.parentNode.id === dragged[0] ) {
-            if ( parseInt(e.target.id) <= parseInt(dragged[1]) ) {
-                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged[0]].images[dragged[1]]);
-                array[dragged[0]].images.splice(parseInt(dragged[1]) + 1, 1);
+        if ( e.target.parentNode.id === dragged.target.parentNode.id ) {
+            if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
             } else {
-                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged[0]].images[dragged[1]]);
-                array[dragged[0]].images.splice(dragged[1], 1);
+                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
             }
+        } else if (dragged.target.parentNode.id === "left") {
+            array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
+
+            sessionStorage.setObj("array", array);
+            displayArrays();
+
+            getImage();
         } else {
-            array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged[0]].images[dragged[1]]);
-            array[dragged[0]].images.splice(dragged[1], 1);
-                if (!array[dragged[0]].images.length) {
-                deleteEmail(dragged[0]);
+
+            if ( e.target.parentNode.id === "left" ) {
+                currentImage = array[dragged.target.parentNode.id].images[dragged.target.id];
+                setImage();
+            } else {
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+            }
+
+            array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
+                if (!array[dragged.target.parentNode.id].images.length) {
+                deleteEmail(dragged.target.parentNode.id);
             }
         }
         sessionStorage.setObj("array", array);
@@ -138,25 +152,27 @@ $("#right").on("drop", function(e) {
     dragged = undefined;
 });
 
+$("body").on("dblclick", function(e) {
+    if ($(e.target).hasClass("draggable")) {
 
-$("#right").on("dblclick", function(e) {
-    if (e.target.nodeName === "IMG") {
-        array[e.target.parentNode.id].images.splice(e.target.id, 1);
-        if (!array[e.target.parentNode.id].images.length) {
-            deleteEmail(e.target.parentNode.id);
+        if (e.target.parentNode.id === "left") {
+            getImage();
+        } else {
+            array[e.target.parentNode.id].images.splice(e.target.id, 1);
+            if (!array[e.target.parentNode.id].images.length) {
+                deleteEmail(e.target.parentNode.id);
+            }
+            sessionStorage.setObj("array", array);
+            displayArrays();
         }
-        sessionStorage.setObj("array", array);
-        displayArrays();
     } 
 });
 
-$("#form").submit(async function(e) {
+$("#form").submit(function(e) {
     e.preventDefault();
-    $(`#form input[type="submit"]`).prop( "disabled", true );
-    addImage(getEmail($("#form #email").val()),  currentImage.image );
+    addImage(getEmail($("#form #email").val()),  currentImage );
     displayArrays();
-    await getImage();
-    $(`#form input[type="submit"]`).prop( "disabled", false );
+    getImage();
 });
 
 
