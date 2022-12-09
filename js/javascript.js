@@ -30,11 +30,8 @@ const urlToArray = async url => {
 let currentImage;
 
 
-let array = sessionStorage.getObj("array") || {
-    "emails": [],
-    "images": [],
-};
-
+// sessionStorage.removeItem("array");
+let array = sessionStorage.getObj("array") || [];
 
 // ==========================================================================
 // Functions
@@ -55,11 +52,11 @@ function setImage() {
 function displayArrays() {
     let html = "";
 
-    for (let emailIndex = 0; emailIndex < array.emails.length; emailIndex++) {
-        html += `<h2>${array.emails[emailIndex]}</h2>`;
+    for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
+        html += `<h2>${array[emailIndex].email}</h2>`;
         html += `<div id="${emailIndex}" class="flex-container">`;
-        for (let imageIndex = 0; imageIndex < array.images[emailIndex].length; imageIndex++) {
-            html += `<img id="${imageIndex}" src="${array.images[emailIndex][imageIndex]}">`;
+        for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
+            html += `<img id="${imageIndex}" src="${array[emailIndex].images[imageIndex]}">`;
         }
         html += `</div>`;
     }
@@ -71,42 +68,82 @@ function getEmail(email) {
     if (!email) {
         email = "NULL";
     }
-    for (let i = 0; i < array.emails.length; i++) {
-        if (array.emails[i] === email) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].email === email) {
             return i;
         }
     }
-    array.emails.push(email);
-    array.images.push([]);
+    array.push({"email":email, "images":[]});
     sessionStorage.setObj("array", array);
     fillDropdown();
-    return array.emails.length - 1;
+    return array.length - 1;
 }
 
 function addImage(email, image) {
-    array.images[email].push(currentImage.image);
+    array[email].images.push(currentImage.image);
     sessionStorage.setObj("array", array);
 }
 
 function fillDropdown() {
     html = "";
-    for (let i = 0; i < array.emails.length; i++) {
-        html += `<option value="${array.emails[i]}">`;
+    for (let i = 0; i < array.length; i++) {
+        html += `<option value="${array[i].email}">`;
     }
     $("#emailList").html(html);
+}
+
+function deleteEmail(id) {
+    array.splice(id, 1);
+    fillDropdown();
 }
 
 // ==========================================================================
 // Events
 // ====================================================================
 
-$("#right").on("click", function(e) {
+let dragged;
+$("#right").on("dragstart", function(e) {
+    dragged = [];
+    dragged[0] = e.target.parentNode.id;
+    dragged[1] = e.target.id;
+});
+
+$("#right").on("dragover", function(e) {
+    e.preventDefault();  
+});
+
+$("#right").on("drop", function(e) {
+    if ( (dragged) && (e.target.nodeName === "IMG") ) {
+        console.log( `${dragged[0]}-${dragged[1]} to ${e.target.parentNode.id}-${e.target.id}` );
+
+
+        if ( e.target.parentNode.id === dragged[0] ) {
+            if ( parseInt(e.target.id) <= parseInt(dragged[1]) ) {
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged[0]].images[dragged[1]]);
+                array[dragged[0]].images.splice(parseInt(dragged[1]) + 1, 1);
+            } else {
+                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged[0]].images[dragged[1]]);
+                array[dragged[0]].images.splice(dragged[1], 1);
+            }
+        } else {
+            array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged[0]].images[dragged[1]]);
+            array[dragged[0]].images.splice(dragged[1], 1);
+                if (!array[dragged[0]].images.length) {
+                deleteEmail(dragged[0]);
+            }
+        }
+        sessionStorage.setObj("array", array);
+        displayArrays();
+    }
+    dragged = undefined;
+});
+
+
+$("#right").on("dblclick", function(e) {
     if (e.target.nodeName === "IMG") {
-        array.images[e.target.parentNode.id].splice(e.target.id, 1);
-        if (!array.images[e.target.parentNode.id].length) {
-            array.emails.splice(e.target.parentNode.id, 1);
-            array.images.splice(e.target.parentNode.id, 1);
-            fillDropdown();
+        array[e.target.parentNode.id].images.splice(e.target.id, 1);
+        if (!array[e.target.parentNode.id].images.length) {
+            deleteEmail(e.target.parentNode.id);
         }
         sessionStorage.setObj("array", array);
         displayArrays();
