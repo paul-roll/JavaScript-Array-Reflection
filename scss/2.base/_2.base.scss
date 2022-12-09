@@ -2,6 +2,10 @@
 // Base Styles
 // ==========================================================================
 
+* {
+    box-sizing: border-box;
+}
+
 .wrapper {
     padding: 15px;
     margin: 0 auto;

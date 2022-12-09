@@ -12,20 +12,17 @@
     
     <main>
       <div class="wrapper">
-        <div class="flex-container">
-          <div class="flex-left">
-            <h1>Left</h1>
-            <div id="left"></div>
-            <form id="form" autocomplete="off">
-              <label for="email">Email: </label>
-              <!-- <input id="email" type="email"> -->
-              <input list="emailList" id="email" type="email">
-              <datalist id="emailList">
-              </datalist>
+        <div class="sidebar">
+          <div id="currentImage"></div>
+          <form id="form" autocomplete="off">
+            <input list="emailList" id="email" type="email" placeholder="Email">
+            <datalist id="emailList">
+            </datalist>
 
-              <input type="submit" value="Submit" disabled>
-            </form>
-          </div>
+            <input id="submit" type="submit" value="Submit" disabled>
+          </form>
+        </div>
+        <div class="main">
           <div>
             <h1>Right</h1>
             <div id="right"></div>

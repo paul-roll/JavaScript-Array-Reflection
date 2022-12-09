@@ -2,13 +2,68 @@
 // Main Layout
 // ==========================================================================
 
-.flex-container {
+body {
+    background-color: darken($color-primary, 50%);
+}
+
+form {
     display: flex;
+
     flex-flow: row wrap;
-    > div {
-        flex: 1 1;
+    @media (min-width: 586px) {
+        display: block;
     }
-    .flex-left {
-        flex-grow: 0;
+}
+
+#email {
+    flex-grow: 1;
+    max-width: 100%;
+    @media (min-width: 586px) {
+        width: 100%;
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main,
+.sidebar {
+    border: 3px solid black;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.main {
+    background-color: darken($color-primary, 35%);
+    @media (min-width: 586px) {
+        margin-left: 220px;
+    }
+}
+
+.sidebar {
+    text-align: center;
+    background-color: darken($color-primary, 35%);
+    position: fixed;
+    width: calc(100vw - 30px);
+
+    @media (min-width: 586px) {
+        width: 200px;
+        height: calc(100vh - 30px);
+    }
+}
+
+.image-flexbox {
+    display: flex;
+    flex-flow: column wrap;
+    @media (min-width: 586px) {
+        flex-direction: row;
+    }
+}
+
+#currentImage img {
+    img {
+        border: 3px solid black;
     }
 }

@@ -259,46 +259,126 @@ th {
 }
 
 /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
 .wrapper {
   padding: 15px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  /* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
   .wrapper {
     max-width: 750px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  /* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
   .wrapper {
     max-width: 970px;
   }
 }
 
 @media (min-width: 1260px) {
-  /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  /* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
   .wrapper {
     max-width: 1200px;
   }
 }
 
 /* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
-.flex-container {
+body {
+  background-color: #104b63;
+}
+
+/* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+form {
   display: flex;
   flex-flow: row wrap;
 }
 
-/* line 8, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
-.flex-container > div {
-  flex: 1 1;
+@media (min-width: 586px) {
+  /* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  form {
+    display: block;
+  }
 }
 
-/* line 11, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
-.flex-container .flex-left {
-  flex-grow: 0;
+/* line 18, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+#email {
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+@media (min-width: 586px) {
+  /* line 18, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  #email {
+    width: 100%;
+  }
+}
+
+/* line 26, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 31, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.main,
+.sidebar {
+  border: 3px solid black;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+/* line 38, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.main {
+  background-color: #1b7ca4;
+}
+
+@media (min-width: 586px) {
+  /* line 38, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .main {
+    margin-left: 220px;
+  }
+}
+
+/* line 45, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.sidebar {
+  text-align: center;
+  background-color: #1b7ca4;
+  position: fixed;
+  width: calc(100vw - 30px);
+}
+
+@media (min-width: 586px) {
+  /* line 45, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .sidebar {
+    width: 200px;
+    height: calc(100vh - 30px);
+  }
+}
+
+/* line 57, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.image-flexbox {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+@media (min-width: 586px) {
+  /* line 57, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .image-flexbox {
+    flex-direction: row;
+  }
+}
+
+/* line 66, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+#currentImage img img {
+  border: 3px solid black;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */

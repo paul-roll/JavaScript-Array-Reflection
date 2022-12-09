@@ -47,8 +47,9 @@ async function getImage() {
 function setImage() {
     let html = "";
     html += `<img class="draggable" id="currentImage" src="${currentImage.image}" alt="">`;
-    html += `<p>Image ID: <span id="imageID">${currentImage.id}</span></p>`;
-    $("#left").html(html);
+    // html += `<p>Image ID: <span id="imageID">${currentImage.id}</span></p>`;
+    $("#currentImage").html(html);
+
 }
 
 function displayArrays() {
@@ -56,7 +57,7 @@ function displayArrays() {
 
     for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
         html += `<h2>${array[emailIndex].email}</h2>`;
-        html += `<div id="${emailIndex}" class="flex-container">`;
+        html += `<div id="${emailIndex}" class="image-flexbox">`;
         for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
             html += `<img class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">`;
         }
@@ -125,7 +126,7 @@ $("body").on("drop", function(e) {
                 array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
                 array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
             }
-        } else if (dragged.target.parentNode.id === "left") {
+        } else if (dragged.target.parentNode.id === "currentImage") {
             array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
 
             sessionStorage.setObj("array", array);
@@ -134,7 +135,7 @@ $("body").on("drop", function(e) {
             getImage();
         } else {
 
-            if ( e.target.parentNode.id === "left" ) {
+            if ( e.target.parentNode.id === "currentImage" ) {
                 currentImage = array[dragged.target.parentNode.id].images[dragged.target.id];
                 setImage();
             } else {
@@ -155,7 +156,7 @@ $("body").on("drop", function(e) {
 $("body").on("dblclick", function(e) {
     if ($(e.target).hasClass("draggable")) {
 
-        if (e.target.parentNode.id === "left") {
+        if (e.target.parentNode.id === "currentImage") {
             getImage();
         } else {
             array[e.target.parentNode.id].images.splice(e.target.id, 1);
