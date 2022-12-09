@@ -6,64 +6,74 @@ body {
     background-color: darken($color-primary, 50%);
 }
 
-form {
-    display: flex;
+header h1 {
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+    color: red;
+    text-align: center;
+    width: 100vw;
+    // top: -21px;
+    bottom: -21px;
+    display: none;
+}
 
-    flex-flow: row wrap;
-    @media (min-width: 586px) {
-        display: block;
-    }
+form {
+    display: block;
 }
 
 #email {
-    flex-grow: 1;
     max-width: 100%;
-    @media (min-width: 586px) {
-        width: 100%;
-    }
-}
-
-.wrapper {
-    display: flex;
-    justify-content: space-between;
 }
 
 .main,
 .sidebar {
     border: 3px solid black;
     padding: 15px;
-    border-radius: 20px;
+}
+
+#main {
+    width: 100%;
 }
 
 .main {
+    // text-align: right;
+    
+    border-radius: 20px;
+    display: flex;
     background-color: darken($color-primary, 35%);
-    @media (min-width: 586px) {
-        margin-left: 220px;
+
+    margin-top: 125px;
+
+
+    @media (min-width: $breakpoint-sm) {
+        margin-top: 85px;
+        & h2:first-of-type {
+            margin-left: 180px;
+        }
     }
 }
 
 .sidebar {
+    padding: 10px;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
     text-align: center;
     background-color: darken($color-primary, 35%);
+    margin-left: -10px;
+    margin-top: -15px;
     position: fixed;
-    width: calc(100vw - 30px);
-
-    @media (min-width: 586px) {
-        width: 200px;
-        height: calc(100vh - 30px);
-    }
+    width: 200px;
 }
 
 .image-flexbox {
     display: flex;
-    flex-flow: column wrap;
-    @media (min-width: 586px) {
-        flex-direction: row;
-    }
+    flex-flow: row wrap;
+    padding-bottom: 20px;
+    // justify-content: center;
 }
 
-#currentImage img {
-    img {
-        border: 3px solid black;
-    }
+img {
+    box-shadow: 0 0 5px 1px;
 }
+

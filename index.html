@@ -9,9 +9,13 @@
   </head>
 
   <body>
-    
+    <header>
+      <h1 id="message"></h1>
+    </header>
+
     <main>
       <div class="wrapper">
+        
         <div class="sidebar">
           <div id="currentImage"></div>
           <form id="form" autocomplete="off">
@@ -20,17 +24,19 @@
             </datalist>
 
             <input id="submit" type="submit" value="Submit" disabled>
+            <button id="newImage" type="button">New Image</button> 
           </form>
         </div>
+
         <div class="main">
-          <div>
-            <h1>Right</h1>
-            <div id="right"></div>
-          </div>
+          <div id="main"></div>
         </div>
+
       </div>
     </main>
 
+    <footer>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/javascript.js"></script>

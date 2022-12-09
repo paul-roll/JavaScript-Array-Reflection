@@ -3,12 +3,9 @@
 // ==========================================================================
 
 // Breakpoints  // Used with media queries to control layout
-$breakpoint-sm    : 768px;
-$breakpoint-md    : 992px;
-$breakpoint-lg    : 1260px;
-// Margins      // Used with wrapper to keep content within bounds
-$wrapper-sm       : $breakpoint-sm - 18px;      
-$wrapper-md       : $breakpoint-md - 22px;
+$breakpoint-sm    : 600px;
+$breakpoint-lg    : 1126px;
+// Margins      // Used with wrapper to keep content within bounds   
 $wrapper-lg       : $breakpoint-lg - 60px;
 
 

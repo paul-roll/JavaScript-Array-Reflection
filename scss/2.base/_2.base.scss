@@ -9,12 +9,6 @@
 .wrapper {
     padding: 15px;
     margin: 0 auto;
-    @media (min-width: $breakpoint-sm) {
-        max-width: $wrapper-sm;
-    }
-    @media (min-width: $breakpoint-md) {
-        max-width: $wrapper-md;
-    }
     @media (min-width: $breakpoint-lg) {
         max-width: $wrapper-lg;
     }

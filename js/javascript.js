@@ -55,15 +55,19 @@ function setImage() {
 function displayArrays() {
     let html = "";
 
-    for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
-        html += `<h2>${array[emailIndex].email}</h2>`;
-        html += `<div id="${emailIndex}" class="image-flexbox">`;
-        for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
-            html += `<img class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">`;
+    if (!array.length) {
+        html += `<h2 style="text-align:center">These are not the arrays you are looking for...</h2>`;
+    } else {
+        for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
+            html += `<h2>${array[emailIndex].email}</h2>`;
+            html += `<div id="${emailIndex}" class="image-flexbox">`;
+            for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
+                html += `<img class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">`;
+            }
+            html += `</div>`;
         }
-        html += `</div>`;
     }
-    $("#right").html(html);
+    $("#main").html(html);
 }
 
 // Function: take string, return id of that email or -1 if not found.
@@ -99,6 +103,12 @@ function deleteEmail(id) {
     array.splice(id, 1);
     fillDropdown();
 }
+
+function showMessage(message) {
+    $("#message").html(message);
+    $("#message").slideDown(500).delay(2000).slideUp(500);
+}
+
 
 // ==========================================================================
 // Events
@@ -153,11 +163,11 @@ $("body").on("drop", function(e) {
     dragged = undefined;
 });
 
-$("body").on("dblclick", function(e) {
+$("body").on("dblclick", async function(e) {
     if ($(e.target).hasClass("draggable")) {
 
         if (e.target.parentNode.id === "currentImage") {
-            getImage();
+            await getImage();
         } else {
             array[e.target.parentNode.id].images.splice(e.target.id, 1);
             if (!array[e.target.parentNode.id].images.length) {
@@ -176,6 +186,10 @@ $("#form").submit(function(e) {
     getImage();
 });
 
+$("#newImage").on("click", async function() {
+    await getImage();
+});
+
 
 // ==========================================================================
 // Core Events
@@ -191,6 +205,7 @@ $(document).ready(async function(){
     $(`#form input[type="submit"]`).prop( "disabled", false );
     displayArrays();
     fillDropdown();
+    showMessage("Test message");
 });
 
 
@@ -199,3 +214,4 @@ $(document).ready(async function(){
 // ==========================================================================
 
 // sessionStorage.removeItem("array");
+// showMessage("Generating new image");
