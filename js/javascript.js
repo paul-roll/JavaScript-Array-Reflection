@@ -39,9 +39,13 @@ let array = sessionStorage.getObj("array") || [];
 // ==========================================================================
 
 function alreadyExists(emailID, imageID) {
-    for (let i = 0; i < array[emailID].images.length; i++) {
-        if (parseInt(array[emailID].images[i].id) === parseInt(imageID)) {
-            return true;
+    if (emailID !== "currentImage") {
+        for (let i = 0; i < array[emailID].images.length; i++) {
+            console.log(typeof imageID);
+            if (parseInt(array[emailID].images[i].id) === parseInt(imageID)) {
+                showMessage("Duplicate Image Ignored");
+                return true;
+            }
         }
     }
     return false;
@@ -107,9 +111,7 @@ function getEmail(email) {
 }
 
 function addImage(email, image) {
-    if (alreadyExists(email, currentImage.id)) {
-        showMessage("Duplicate Image Ignored");
-    } else {
+    if (!alreadyExists(email, currentImage.id)) {
         array[email].images.push(currentImage);
         sessionStorage.setObj("array", array);
     }
@@ -177,7 +179,7 @@ $("body").on("dragover", function(e) {
 
 $("body").on("drop", function(e) {
     if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target) ) {
-        if ( e.target.parentNode.id === dragged.target.parentNode.id ) {
+        if (( e.target.parentNode.id === dragged.target.parentNode.id ) && (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) ) {
             if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
                 array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
                 array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
@@ -185,22 +187,20 @@ $("body").on("drop", function(e) {
                 array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
                 array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
             }
-        } else if (dragged.target.parentNode.id === "currentImage") {
+        } else if ((dragged.target.parentNode.id === "currentImage") && (!alreadyExists(e.target.parentNode.id, currentImage.id))) {
             array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
 
             sessionStorage.setObj("array", array);
             displayArrays();
 
             getImage();
-        } else {
-
+        } else if (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) {
             if ( e.target.parentNode.id === "currentImage" ) {
                 currentImage = array[dragged.target.parentNode.id].images[dragged.target.id];
                 setImage();
             } else {
                 array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
             }
-
             array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
                 if (!array[dragged.target.parentNode.id].images.length) {
                 deleteEmail(dragged.target.parentNode.id);
