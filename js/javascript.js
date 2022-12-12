@@ -41,7 +41,6 @@ let array = sessionStorage.getObj("array") || [];
 function alreadyExists(emailID, imageID) {
     if (emailID !== "currentImage") {
         for (let i = 0; i < array[emailID].images.length; i++) {
-            console.log(typeof imageID);
             if (parseInt(array[emailID].images[i].id) === parseInt(imageID)) {
                 showMessage("Duplicate Image Ignored");
                 return true;
