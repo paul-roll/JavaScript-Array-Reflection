@@ -38,6 +38,15 @@ let array = sessionStorage.getObj("array") || [];
 // Functions
 // ==========================================================================
 
+function alreadyExists(emailID, imageID) {
+    for (let i = 0; i < array[emailID].images.length; i++) {
+        if (parseInt(array[emailID].images[i].id) === parseInt(imageID)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 async function getImage() {
     $(`#form input[type="submit"]`).prop( "disabled", true );
     currentImage = await urlToArray('https://picsum.photos/100/100');
@@ -98,8 +107,12 @@ function getEmail(email) {
 }
 
 function addImage(email, image) {
-    array[email].images.push(currentImage);
-    sessionStorage.setObj("array", array);
+    if (alreadyExists(email, currentImage.id)) {
+        showMessage("Duplicate Image Ignored");
+    } else {
+        array[email].images.push(currentImage);
+        sessionStorage.setObj("array", array);
+    }
 }
 
 function fillDropdown() {
@@ -251,5 +264,7 @@ $(document).ready(async function(){
 // Testing
 // ==========================================================================
 
-// sessionStorage.removeItem("array");
+function reset() {
+    sessionStorage.removeItem("array");
+}
 // showMessage("Generating new image");
