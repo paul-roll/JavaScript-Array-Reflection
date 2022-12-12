@@ -12,7 +12,7 @@ Storage.prototype.getObj = function(key) {
 const urlToArray = async url => {
     const response = await fetch(url);
     if (!response.ok) {
-        return {"id":-1, "image":"img/error.jpg"};
+        return {"id":-1, "image":"images/error.jpg"};
     }
     const blob = await response.blob();
     return new Promise((onSuccess, onError) => {
@@ -47,8 +47,11 @@ async function getImage() {
 
 function setImage() {
     let html = "";
-    html += `<img class="draggable" id="currentImage" src="${currentImage.image}" alt="">`;
-    // html += `<p>Image ID: <span id="imageID">${currentImage.id}</span></p>`;
+    html += `
+        <a href="https://picsum.photos/id/${currentImage.id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="current" data-title="Image ID: ${currentImage.id}">
+            <img oncontextmenu="return false;" class="draggable" id="currentImage" src="${currentImage.image}" alt="">
+        </a>
+    `;
     $("#currentImage").html(html);
 
 }
@@ -66,7 +69,11 @@ function displayArrays() {
             html += `<h2>${array[emailIndex].email}</h2>`;
             html += `<div id="${emailIndex}" class="image-flexbox">`;
             for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
-                html += `<img class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">`;
+                html += `
+                    <a href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
+                        <img oncontextmenu="return false;" class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">
+                    </a>
+                `;
             }
             html += `</div>`;
         }
@@ -138,14 +145,13 @@ function validateEmail(email) {
 }
 
 
-
 // ==========================================================================
 // Events
 // ====================================================================
 
 let dragged;
 $("body").on("dragstart", function(e) {
-    if ( $(e.target).hasClass("draggable") ) {
+    if ( $(e.target.children[0]).hasClass("draggable") ) {
         dragged = e;
     }
 });
@@ -155,18 +161,17 @@ $("body").on("dragover", function(e) {
 });
 
 $("body").on("drop", function(e) {
-    if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target) ) {
-
-        if ( e.target.parentNode.id === dragged.target.parentNode.id ) {
-            if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
-                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
-                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
+    if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target.children[0]) ) {
+        if ( e.target.parentNode.parentNode.id === dragged.target.parentNode.id ) {
+            if ( parseInt(e.target.id) <= parseInt(dragged.target.children[0].id) ) {
+                array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.children[0].id]);
+                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.children[0].id) + 1, 1);
             } else {
-                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
-                array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
+                array[e.target.parentNode.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.children[0].id]);
+                array[dragged.target.parentNode.id].images.splice(dragged.target.children[0].id, 1);
             }
         } else if (dragged.target.parentNode.id === "currentImage") {
-            array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
+            array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 0, currentImage);
 
             sessionStorage.setObj("array", array);
             displayArrays();
@@ -174,14 +179,14 @@ $("body").on("drop", function(e) {
             getImage();
         } else {
 
-            if ( e.target.parentNode.id === "currentImage" ) {
-                currentImage = array[dragged.target.parentNode.id].images[dragged.target.id];
+            if ( e.target.parentNode.parentNode.id === "currentImage" ) {
+                currentImage = array[dragged.target.parentNode.id].images[dragged.target.children[0].id];
                 setImage();
             } else {
-                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.children[0].id]);
             }
 
-            array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
+            array[dragged.target.parentNode.id].images.splice(dragged.target.children[0].id, 1);
                 if (!array[dragged.target.parentNode.id].images.length) {
                 deleteEmail(dragged.target.parentNode.id);
             }
@@ -192,20 +197,21 @@ $("body").on("drop", function(e) {
     dragged = undefined;
 });
 
-$("body").on("dblclick", async function(e) {
+$("body").on("mousedown", async function(e) {
     if ($(e.target).hasClass("draggable")) {
-
-        if (e.target.parentNode.id === "currentImage") {
-            await getImage();
-        } else {
-            array[e.target.parentNode.id].images.splice(e.target.id, 1);
-            if (!array[e.target.parentNode.id].images.length) {
-                deleteEmail(e.target.parentNode.id);
+        if (event.which === 3) {
+            if (e.target.parentNode.parentNode.id === "currentImage") {
+                await getImage();
+            } else {
+                array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 1);
+                if (!array[e.target.parentNode.parentNode.id].images.length) {
+                    deleteEmail(e.target.parentNode.parentNode.id);
+                }
+                sessionStorage.setObj("array", array);
+                displayArrays();
             }
-            sessionStorage.setObj("array", array);
-            displayArrays();
         }
-    } 
+    }
 });
 
 $("#form").submit(function(e) {
