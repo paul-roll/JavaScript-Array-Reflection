@@ -248,12 +248,19 @@ $("#newImage").on("click", async function() {
 // Core Events
 // ==========================================================================
 
+$(window).on("resize",function() {
+    displayArrays();
+    $('#lightbox').find('.lb-close').trigger("click");
+});
 
 // ==========================================================================
 // Page Load
 // ==========================================================================
 
-$(document).ready(async function(){     
+$(document).ready(async function(){
+    lightbox.option({
+        disableScrolling: true,
+      })
     await getImage();
     $(`#form input[type="submit"]`).prop( "disabled", false );
     displayArrays();
