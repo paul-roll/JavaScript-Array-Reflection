@@ -48,8 +48,8 @@ async function getImage() {
 function setImage() {
     let html = "";
     html += `
-        <a href="https://picsum.photos/id/${currentImage.id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="current" data-title="Image ID: ${currentImage.id}">
-            <img oncontextmenu="return false;" class="draggable" id="currentImage" src="${currentImage.image}" alt="">
+        <a class="draggable" id="currentImage" href="https://picsum.photos/id/${currentImage.id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="current" data-title="Image ID: ${currentImage.id}">
+            <img oncontextmenu="return false;" src="${currentImage.image}" alt="">
         </a>
     `;
     $("#currentImage").html(html);
@@ -70,8 +70,8 @@ function displayArrays() {
             html += `<div id="${emailIndex}" class="image-flexbox">`;
             for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
                 html += `
-                    <a href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
-                        <img oncontextmenu="return false;" class="draggable" id="${imageIndex}" src="${array[emailIndex].images[imageIndex].image}">
+                    <a id="${imageIndex}" class="draggable" href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
+                        <img oncontextmenu="return false;" src="${array[emailIndex].images[imageIndex].image}">
                     </a>
                 `;
             }
@@ -151,7 +151,9 @@ function validateEmail(email) {
 
 let dragged;
 $("body").on("dragstart", function(e) {
-    if ( $(e.target.children[0]).hasClass("draggable") ) {
+    if ( $(e.target).hasClass("draggable") ) {
+        e.dataTransfer = e.originalEvent.dataTransfer;
+        e.dataTransfer.setDragImage(e.target, 50, 50)
         dragged = e;
     }
 });
@@ -161,17 +163,17 @@ $("body").on("dragover", function(e) {
 });
 
 $("body").on("drop", function(e) {
-    if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target.children[0]) ) {
-        if ( e.target.parentNode.parentNode.id === dragged.target.parentNode.id ) {
-            if ( parseInt(e.target.id) <= parseInt(dragged.target.children[0].id) ) {
-                array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.children[0].id]);
-                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.children[0].id) + 1, 1);
+    if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target) ) {
+        if ( e.target.parentNode.id === dragged.target.parentNode.id ) {
+            if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
             } else {
-                array[e.target.parentNode.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.children[0].id]);
-                array[dragged.target.parentNode.id].images.splice(dragged.target.children[0].id, 1);
+                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
             }
         } else if (dragged.target.parentNode.id === "currentImage") {
-            array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 0, currentImage);
+            array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
 
             sessionStorage.setObj("array", array);
             displayArrays();
@@ -179,14 +181,14 @@ $("body").on("drop", function(e) {
             getImage();
         } else {
 
-            if ( e.target.parentNode.parentNode.id === "currentImage" ) {
-                currentImage = array[dragged.target.parentNode.id].images[dragged.target.children[0].id];
+            if ( e.target.parentNode.id === "currentImage" ) {
+                currentImage = array[dragged.target.parentNode.id].images[dragged.target.id];
                 setImage();
             } else {
-                array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.children[0].id]);
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
             }
 
-            array[dragged.target.parentNode.id].images.splice(dragged.target.children[0].id, 1);
+            array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
                 if (!array[dragged.target.parentNode.id].images.length) {
                 deleteEmail(dragged.target.parentNode.id);
             }
@@ -200,12 +202,12 @@ $("body").on("drop", function(e) {
 $("body").on("mousedown", async function(e) {
     if ($(e.target).hasClass("draggable")) {
         if (event.which === 3) {
-            if (e.target.parentNode.parentNode.id === "currentImage") {
+            if (e.target.parentNode.id === "currentImage") {
                 await getImage();
             } else {
-                array[e.target.parentNode.parentNode.id].images.splice(e.target.id, 1);
-                if (!array[e.target.parentNode.parentNode.id].images.length) {
-                    deleteEmail(e.target.parentNode.parentNode.id);
+                array[e.target.parentNode.id].images.splice(e.target.id, 1);
+                if (!array[e.target.parentNode.id].images.length) {
+                    deleteEmail(e.target.parentNode.id);
                 }
                 sessionStorage.setObj("array", array);
                 displayArrays();

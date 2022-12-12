@@ -81,11 +81,27 @@ form {
     width: 200px;
 }
 
+#currentImage a {
+    color: black;
+    display: inline-block;
+    height: 100px;  
+    img {
+        pointer-events: none;
+    }
+}
+
 .image-flexbox {
     display: flex;
     flex-flow: row wrap;
     padding-bottom: 20px;
     margin-top: 20px;
+    a {
+        color: black;
+        height: 100px;
+        img {
+            pointer-events: none;
+        }
+    }
 }
 
 img {

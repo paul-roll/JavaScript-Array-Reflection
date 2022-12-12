@@ -606,6 +606,18 @@ form {
 }
 
 /* line 84, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+#currentImage a {
+  color: black;
+  display: inline-block;
+  height: 100px;
+}
+
+/* line 88, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+#currentImage a img {
+  pointer-events: none;
+}
+
+/* line 93, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox {
   display: flex;
   flex-flow: row wrap;
@@ -613,7 +625,18 @@ form {
   margin-top: 20px;
 }
 
-/* line 91, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 98, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.image-flexbox a {
+  color: black;
+  height: 100px;
+}
+
+/* line 101, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+.image-flexbox a img {
+  pointer-events: none;
+}
+
+/* line 107, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 img {
   box-shadow: 0 0 5px 1px;
 }
