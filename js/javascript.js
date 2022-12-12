@@ -48,8 +48,8 @@ async function getImage() {
 function setImage() {
     let html = "";
     html += `
-        <a class="draggable" id="currentImage" href="https://picsum.photos/id/${currentImage.id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="current" data-title="Image ID: ${currentImage.id}">
-            <img oncontextmenu="return false;" src="${currentImage.image}" alt="">
+        <a oncontextmenu="return false;" class="draggable" id="currentImage" href="https://picsum.photos/id/${currentImage.id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="current" data-title="Image ID: ${currentImage.id}">
+            <img src="${currentImage.image}" alt="">
         </a>
     `;
     $("#currentImage").html(html);
@@ -70,8 +70,8 @@ function displayArrays() {
             html += `<div id="${emailIndex}" class="image-flexbox">`;
             for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
                 html += `
-                    <a id="${imageIndex}" class="draggable" href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
-                        <img oncontextmenu="return false;" src="${array[emailIndex].images[imageIndex].image}">
+                    <a oncontextmenu="return false;" id="${imageIndex}" class="draggable" href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
+                        <img src="${array[emailIndex].images[imageIndex].image}">
                     </a>
                 `;
             }
