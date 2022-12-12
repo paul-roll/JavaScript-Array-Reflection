@@ -6,7 +6,7 @@ body {
     background-color: darken($color-primary, 50%);
 }
 
-header h1 {
+#message {
     position: fixed;
     z-index: 1;
     background-color: black;
@@ -27,18 +27,24 @@ form {
 }
 
 .main,
-.sidebar {
+.sidebar,
+.footer {
     border: 3px solid black;
     padding: 15px;
 }
 
 #main {
     width: 100%;
+    text-align: center;
+    h2 {
+        margin-bottom: 0;
+    }
+    p {
+        margin-top: 0;
+    }
 }
 
-.main {
-    // text-align: right;
-    
+.main {  
     border-radius: 20px;
     display: flex;
     background-color: darken($color-primary, 35%);
@@ -48,9 +54,18 @@ form {
 
     @media (min-width: $breakpoint-sm) {
         margin-top: 85px;
-        & h2:first-of-type {
+        & h2:first-of-type, p {
             margin-left: 180px;
         }
+    }
+}
+
+.footer {
+    border-radius: 20px;
+    background-color: darken($color-primary, 35%);
+    text-align: center;
+    p {
+        margin: 0;
     }
 }
 
@@ -70,7 +85,7 @@ form {
     display: flex;
     flex-flow: row wrap;
     padding-bottom: 20px;
-    // justify-content: center;
+    margin-top: 20px;
 }
 
 img {

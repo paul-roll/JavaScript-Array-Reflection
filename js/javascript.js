@@ -28,6 +28,7 @@ const urlToArray = async url => {
 };
 
 let currentImage;
+let messageBusy = false;
 
 
 // sessionStorage.removeItem("array");
@@ -56,7 +57,10 @@ function displayArrays() {
     let html = "";
 
     if (!array.length) {
-        html += `<h2 style="text-align:center">These are not the arrays you are looking for...</h2>`;
+        html += `
+            <h2>The array is empty!</h2>
+            <p>Submit some images to get started</p>
+        `;
     } else {
         for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
             html += `<h2>${array[emailIndex].email}</h2>`;
@@ -104,10 +108,35 @@ function deleteEmail(id) {
     fillDropdown();
 }
 
+
 function showMessage(message) {
-    $("#message").html(message);
-    $("#message").slideDown(500).delay(2000).slideUp(500);
+    if (!messageBusy) {
+        messageBusy = true;
+        $("#message").html(message);
+        $("#message").slideDown(500).delay(2000).slideUp(500, function() {
+            messageBusy = false;
+        });
+
+    }
 }
+
+function validateEmail(email) {
+    if (!email) {
+        showMessage("An Email Is Required");
+        return false;
+    } else if (!email.match(/^[a-zA-Z0-9-!#$%&'*+.\/=?@^_`{|}~]*$/)) {   // Invalid characters in email
+        showMessage("Invalid Characters In Email");
+        return false;
+    } else if (email.length > 254) {  // At most 254 Characters
+        showMessage("Email Is Too Long");
+        return false;
+    } else if (!email.match(/^[a-zA-Z0-9-!#$%&'*+.\/=?@^_`{|}~]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}$/)) {   // Far from perfect, catches the general format of emails
+        showMessage("Invalid Email");
+    } else {
+        return true;
+    }
+}
+
 
 
 // ==========================================================================
@@ -181,9 +210,11 @@ $("body").on("dblclick", async function(e) {
 
 $("#form").submit(function(e) {
     e.preventDefault();
-    addImage(getEmail($("#form #email").val()),  currentImage );
-    displayArrays();
-    getImage();
+    if(validateEmail($("#form #email").val())) {
+        addImage(getEmail($("#form #email").val()),  currentImage );
+        displayArrays();
+        getImage();
+    }
 });
 
 $("#newImage").on("click", async function() {
@@ -205,7 +236,6 @@ $(document).ready(async function(){
     $(`#form input[type="submit"]`).prop( "disabled", false );
     displayArrays();
     fillDropdown();
-    showMessage("Test message");
 });
 
 
