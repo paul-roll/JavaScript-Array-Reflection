@@ -178,20 +178,22 @@ $("body").on("dragover", function(e) {
 
 $("body").on("drop", function(e) {
     if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target) ) {
-        if (( e.target.parentNode.id === dragged.target.parentNode.id ) && (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) ) {
-            if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
-                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
-                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
-            } else {
-                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
-                array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
+        if (( e.target.parentNode.id === dragged.target.parentNode.id ) ) {
+            if (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) {
+                if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
+                    array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                    array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
+                } else {
+                    array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                    array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
+                }
             }
-        } else if ((dragged.target.parentNode.id === "currentImage") && (!alreadyExists(e.target.parentNode.id, currentImage.id))) {
-            array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
-
-            sessionStorage.setObj("array", array);
-            displayArrays();
-
+        } else if ((dragged.target.parentNode.id === "currentImage")) {
+            if (!alreadyExists(e.target.parentNode.id, currentImage.id)) {
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
+                sessionStorage.setObj("array", array);
+                displayArrays();
+            }
             getImage();
         } else if (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) {
             if ( e.target.parentNode.id === "currentImage" ) {
