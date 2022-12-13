@@ -553,15 +553,16 @@ form {
 
 /* line 39, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main h2 {
+  word-wrap: break-word;
   margin-bottom: 0;
 }
 
-/* line 42, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 43, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main p {
   margin-top: 0;
 }
 
-/* line 47, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 48, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .main {
   border-radius: 20px;
   display: flex;
@@ -570,29 +571,29 @@ form {
 }
 
 @media (min-width: 600px) {
-  /* line 47, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 48, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .main {
     margin-top: 85px;
   }
-  /* line 57, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 58, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .main h2:first-of-type, .main p {
     margin-left: 180px;
   }
 }
 
-/* line 63, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 64, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .footer {
   border-radius: 20px;
   background-color: #1b7ca4;
   text-align: center;
 }
 
-/* line 67, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 68, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .footer p {
   margin: 0;
 }
 
-/* line 72, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 73, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .sidebar {
   padding: 10px;
   border-top: none;
@@ -605,19 +606,19 @@ form {
   width: 200px;
 }
 
-/* line 84, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 85, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a {
   color: black;
   display: inline-block;
   height: 100px;
 }
 
-/* line 88, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 89, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a img {
   pointer-events: none;
 }
 
-/* line 93, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 94, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox {
   display: flex;
   flex-flow: row wrap;
@@ -625,18 +626,18 @@ form {
   margin-top: 20px;
 }
 
-/* line 98, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 99, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a {
   color: black;
   height: 100px;
 }
 
-/* line 101, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 102, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a img {
   pointer-events: none;
 }
 
-/* line 107, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 108, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 img {
   box-shadow: 0 0 5px 1px;
 }
