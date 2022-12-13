@@ -2,6 +2,7 @@
 // Variables and Prototypes
 // ==========================================================================
 
+// Allows objects to be stored session-storage
 Storage.prototype.setObj = function(key, obj) {
     return this.setItem(key, JSON.stringify(obj))
 }
@@ -9,6 +10,8 @@ Storage.prototype.getObj = function(key) {
     return JSON.parse(this.getItem(key))
 }
 
+// fetch a picsum image and return an array of its image as a blob, the ID
+//      or on error a pointer towards local error.jpg
 const urlToArray = async url => {
     const response = await fetch(url);
     if (!response.ok) {
@@ -27,17 +30,16 @@ const urlToArray = async url => {
     });
 };
 
+// global variables
 let currentImage;
 let messageBusy = false;
-
-
-// sessionStorage.removeItem("array");
-let array = sessionStorage.getObj("array") || [];
+let array = sessionStorage.getObj("array") || []; // set an empty array if session-storage is not found
 
 // ==========================================================================
 // Functions
 // ==========================================================================
 
+// return true if the imageID exists inside the emailID
 function alreadyExists(emailID, imageID) {
     if (emailID !== "currentImage") {
         for (let i = 0; i < array[emailID].images.length; i++) {
@@ -50,6 +52,7 @@ function alreadyExists(emailID, imageID) {
     return false;
 }
 
+// lock submit, request a new image, set it then unlock submit
 async function getImage() {
     $(`#form input[type="submit"]`).prop( "disabled", true );
     currentImage = await urlToArray('https://picsum.photos/100/100');
@@ -57,6 +60,7 @@ async function getImage() {
     $(`#form input[type="submit"]`).prop( "disabled", false );
 }
 
+// put the image stored in currentImage onto the sidebar
 function setImage() {
     let html = "";
     html += `
@@ -68,15 +72,19 @@ function setImage() {
 
 }
 
+// put the data stored in array onto the main body
 function displayArrays() {
     let html = "";
 
+    // array is empty, placeholder text
     if (!array.length) {
         html += `
             <h2>The array is empty!</h2>
             <p>Submit some images to get started</p>
         `;
+    // array has at least 1 item in it
     } else {
+        // Loop through array and generate the html
         for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
             html += `<h2>${array[emailIndex].email}</h2>`;
             html += `<div id="${emailIndex}" class="image-flexbox">`;
@@ -93,7 +101,7 @@ function displayArrays() {
     $("#main").html(html);
 }
 
-// Function: take string, return id of that email or -1 if not found.
+// take string, return id of that email or inject it and generate its ID to return
 function getEmail(email) {
     if (!email) {
         email = "NULL";
@@ -109,13 +117,15 @@ function getEmail(email) {
     return array.length - 1;
 }
 
-function addImage(email, image) {
-    if (!alreadyExists(email, currentImage.id)) {
-        array[email].images.push(currentImage);
+// push the given image into the given emailID
+function addImage(emailID, image) {
+    if (!alreadyExists(emailID, image.id)) {
+        array[emailID].images.push(image);
         sessionStorage.setObj("array", array);
     }
 }
 
+// update input dropdown list
 function fillDropdown() {
     html = "";
     for (let i = 0; i < array.length; i++) {
@@ -124,12 +134,13 @@ function fillDropdown() {
     $("#emailList").html(html);
 }
 
+// delete an email from the array
 function deleteEmail(id) {
     array.splice(id, 1);
     fillDropdown();
 }
 
-
+// show a popup message briefly at the bottom of the screen
 function showMessage(message) {
     if (!messageBusy) {
         messageBusy = true;
@@ -141,6 +152,7 @@ function showMessage(message) {
     }
 }
 
+// return true when email validates OK
 function validateEmail(email) {
     if (!email) {
         showMessage("An Email Is Required");
@@ -163,6 +175,7 @@ function validateEmail(email) {
 // Events
 // ====================================================================
 
+// set global variable to track the source when moving objects with the draggable class
 let dragged;
 $("body").on("dragstart", function(e) {
     if ( $(e.target).hasClass("draggable") ) {
@@ -219,13 +232,19 @@ $("body").on("drop", function(e) {
     dragged = undefined;
 });
 
+// right click event to delete or refresh images (menu is supressed with CSS)
 $("body").on("mousedown", async function(e) {
+    // only fire on the draggable image items
     if ($(e.target).hasClass("draggable")) {
+        // right mouse button
         if (event.which === 3) {
+            // sidebar clicked, refresh the image
             if (e.target.parentNode.id === "currentImage") {
                 await getImage();
+            // other images clicked, delete them
             } else {
                 array[e.target.parentNode.id].images.splice(e.target.id, 1);
+                // delete the email if the last image was deleted
                 if (!array[e.target.parentNode.id].images.length) {
                     deleteEmail(e.target.parentNode.id);
                 }
@@ -236,8 +255,10 @@ $("body").on("mousedown", async function(e) {
     }
 });
 
+// form submit function to add image
 $("#form").submit(function(e) {
     e.preventDefault();
+    // only submit if email validates
     if(validateEmail($("#form #email").val())) {
         addImage(getEmail($("#form #email").val()),  currentImage );
         displayArrays();
@@ -245,6 +266,7 @@ $("#form").submit(function(e) {
     }
 });
 
+// new image button clicked
 $("#newImage").on("click", async function() {
     await getImage();
 });
@@ -254,6 +276,7 @@ $("#newImage").on("click", async function() {
 // Core Events
 // ==========================================================================
 
+// when the window is resized trigger the gallery event that closes it to prevent overflow
 $(window).on("resize",function() {
     displayArrays();
     $('#lightbox').find('.lb-close').trigger("click");
@@ -264,13 +287,20 @@ $(window).on("resize",function() {
 // ==========================================================================
 
 $(document).ready(async function(){
+    // lightbox gallery settingh
     lightbox.option({
         disableScrolling: true,
       })
-    await getImage();
-    $(`#form input[type="submit"]`).prop( "disabled", false );
+
+    // put array on screen and fill the dropdown
     displayArrays();
     fillDropdown();
+
+    // wait for a new image and put it on screen
+    await getImage();
+    // enable the form submit button (it starts disabled)
+    $(`#form input[type="submit"]`).prop( "disabled", false );
+
 });
 
 
@@ -278,7 +308,10 @@ $(document).ready(async function(){
 // Testing
 // ==========================================================================
 
+// debug function to delete the array without having to close browser
 function reset() {
+    showMessage("Array Deleted")
     sessionStorage.removeItem("array");
+    array = [];
+    displayArrays();
 }
-// showMessage("Generating new image");
