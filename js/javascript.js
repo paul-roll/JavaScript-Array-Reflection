@@ -89,10 +89,10 @@ function displayArrays() {
         // Loop through array and generate the html
         for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
             html += `<h2>${array[emailIndex].email}</h2>`;
-            html += `<div id="${emailIndex}" class="image-flexbox">`;
+            html += `<div id="${emailIndex}" class="image-flexbox" oncontextmenu="return false;">`;
             for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
                 html += `
-                    <a oncontextmenu="return false;" id="${imageIndex}" class="draggable" href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
+                    <a id="${imageIndex}" class="draggable" href="https://picsum.photos/id/${array[emailIndex].images[imageIndex].id}/${window.innerWidth}/${window.innerHeight}" data-lightbox="image-${emailIndex}" data-title="Image ID: ${array[emailIndex].images[imageIndex].id}">
                         <img src="${array[emailIndex].images[imageIndex].image}">
                     </a>
                 `;
