@@ -4,11 +4,11 @@
 
 // Allows objects to be stored session-storage
 Storage.prototype.setObj = function(key, obj) {
-    return this.setItem(key, JSON.stringify(obj))
-}
+    return this.setItem(key, JSON.stringify(obj));
+};
 Storage.prototype.getObj = function(key) {
-    return JSON.parse(this.getItem(key))
-}
+    return JSON.parse(this.getItem(key));
+};
 
 // fetch a picsum image and return an array of its image as a blob, the ID
 //      or on error a pointer towards local error.jpg
@@ -23,7 +23,9 @@ const urlToArray = async url => {
             const imageID = response.headers.get("picsum-id");
             const reader = new FileReader() ;
             reader.readAsDataURL(blob) ;
-            reader.onload = function(){ onSuccess({"id":imageID,"image":this.result}) } ;
+            reader.onload = function(){
+                onSuccess({"id":imageID,"image":this.result});
+            } ;
         } catch(e) {
             onError(e);
         }
@@ -127,7 +129,7 @@ function addImage(emailID, image) {
 
 // update input dropdown list
 function fillDropdown() {
-    html = "";
+    let html = "";
     for (let i = 0; i < array.length; i++) {
         html += `<option value="${array[i].email}">`;
     }
@@ -180,7 +182,7 @@ let dragged;
 $("body").on("dragstart", function(e) {
     if ( $(e.target).hasClass("draggable") ) {
         e.dataTransfer = e.originalEvent.dataTransfer;
-        e.dataTransfer.setDragImage(e.target, 50, 50)
+        e.dataTransfer.setDragImage(e.target, 50, 50);
         dragged = e;
     }
 });
@@ -290,7 +292,7 @@ $(document).ready(async function(){
     // lightbox gallery settingh
     lightbox.option({
         disableScrolling: true,
-      })
+      });
 
     // put array on screen and fill the dropdown
     displayArrays();
@@ -310,7 +312,7 @@ $(document).ready(async function(){
 
 // debug function to delete the array without having to close browser
 function reset() {
-    showMessage("Array Deleted")
+    showMessage("Array Deleted");
     sessionStorage.removeItem("array");
     array = [];
     displayArrays();
