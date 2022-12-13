@@ -151,7 +151,7 @@ function validateEmail(email) {
     } else if (email.length > 254) {  // At most 254 Characters
         showMessage("Email Is Too Long");
         return false;
-    } else if (!email.match(/^[a-zA-Z0-9-!#$%&'*+.\/=?@^_`{|}~]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}$/)) {   // Far from perfect, catches the general format of emails
+    } else if (!email.match(/^[a-zA-Z0-9-!#$%&'*+.\/=?^_`{|}~]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}$/)) {   // Far from perfect, catches the general format of emails
         showMessage("Invalid Email");
     } else {
         return true;
@@ -176,18 +176,22 @@ $("body").on("dragover", function(e) {
     e.preventDefault();  
 });
 
+// Drag and Drop completed
 $("body").on("drop", function(e) {
+    // Valid drag source and destination
     if ( (dragged) && ($(e.target).hasClass("draggable")) && (e.target !== dragged.target) ) {
+        // Drag within same email
         if (( e.target.parentNode.id === dragged.target.parentNode.id ) ) {
-            if (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) {
-                if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
-                    array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
-                    array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
-                } else {
-                    array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
-                    array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
-                }
+            // move to same or lower slot
+            if ( parseInt(e.target.id) <= parseInt(dragged.target.id) ) {
+                array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[dragged.target.parentNode.id].images.splice(parseInt(dragged.target.id) + 1, 1);
+            // move to higher slot
+            } else {
+                array[e.target.parentNode.id].images.splice(parseInt(e.target.id) + 1, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
+                array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
             }
+        // drag from sidebar
         } else if ((dragged.target.parentNode.id === "currentImage")) {
             if (!alreadyExists(e.target.parentNode.id, currentImage.id)) {
                 array[e.target.parentNode.id].images.splice(e.target.id, 0, currentImage);
@@ -196,9 +200,11 @@ $("body").on("drop", function(e) {
             }
             getImage();
         } else if (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) {
+            // Drag to sidebar
             if ( e.target.parentNode.id === "currentImage" ) {
                 currentImage = array[dragged.target.parentNode.id].images[dragged.target.id];
                 setImage();
+            // Drag from email to email
             } else {
                 array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
             }
