@@ -532,12 +532,39 @@ form {
   display: block;
 }
 
-/* line 25, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 23, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+form #email, form #submit, form #newImage {
+  background-color: #30aadc;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px;
+}
+
+/* line 29, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+form #email {
+  width: 250px;
+  padding: 4px 10px;
+  outline: none;
+}
+
+/* line 33, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+form #email::placeholder {
+  opacity: 0.5;
+  color: black;
+}
+
+/* line 38, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+form #submit, form #newImage {
+  margin-top: 5px;
+  padding: 4px 33px;
+}
+
+/* line 46, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #email {
   max-width: 100%;
 }
 
-/* line 29, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 50, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .main,
 .sidebar,
 .footer {
@@ -545,24 +572,24 @@ form {
   padding: 15px;
 }
 
-/* line 36, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 57, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main {
   width: 100%;
   text-align: center;
 }
 
-/* line 39, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 60, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main h2 {
   word-wrap: break-word;
   margin-bottom: 0;
 }
 
-/* line 43, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 64, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main p {
   margin-top: 0;
 }
 
-/* line 48, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 69, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .main {
   border-radius: 20px;
   display: flex;
@@ -571,32 +598,32 @@ form {
 }
 
 @media (max-width: 409px) {
-  /* line 48, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 69, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .main {
-    margin-top: 180px;
+    margin-top: 185px;
   }
 }
 
 @media (min-width: 520px) {
-  /* line 48, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 69, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .main {
     margin-top: 230px;
   }
 }
 
-/* line 66, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 87, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .footer {
   border-radius: 20px;
   background-color: #1b7ca4;
   text-align: center;
 }
 
-/* line 70, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 91, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .footer p {
   margin: 0;
 }
 
-/* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 96, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .sidebar {
   padding: 10px;
   border-top: none;
@@ -611,7 +638,7 @@ form {
 }
 
 @media (min-width: 410px) {
-  /* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 96, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .sidebar {
     display: flex;
     flex-flow: row;
@@ -621,26 +648,26 @@ form {
 }
 
 @media (min-width: 520px) {
-  /* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 96, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .sidebar {
     width: 500px;
   }
 }
 
-/* line 100, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 121, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a {
   color: black;
   display: inline-block;
   height: 100px;
 }
 
-/* line 104, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 125, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a img {
   pointer-events: none;
 }
 
 @media (max-width: 409px) {
-  /* line 109, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 130, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   #currentImage a, #currentImage a img {
     height: 150px;
     width: 150px;
@@ -648,14 +675,14 @@ form {
 }
 
 @media (min-width: 520px) {
-  /* line 109, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 130, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   #currentImage a, #currentImage a img {
     height: 200px;
     width: 200px;
   }
 }
 
-/* line 120, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 141, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox {
   display: flex;
   flex-flow: row wrap;
@@ -663,18 +690,18 @@ form {
   margin-top: 20px;
 }
 
-/* line 125, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 146, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a {
   color: black;
   height: 100px;
 }
 
-/* line 128, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 149, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a img {
   pointer-events: none;
 }
 
-/* line 134, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 155, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 img {
   box-shadow: 0 0 5px 1px;
 }

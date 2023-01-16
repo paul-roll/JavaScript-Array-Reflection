@@ -20,7 +20,28 @@ body {
 
 form {
     display: block;
+    #email, #submit, #newImage {
+        background-color: darken($color-primary, 20%);
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 1px;
+    }
+    #email {
+        width: 250px;
+        padding: 4px 10px;
+        outline: none;
+        &::placeholder {
+            opacity: 0.5;
+            color: black;
+        }
+    }
+    #submit, #newImage {
+        margin-top: 5px;
+        padding: 4px 33px;
+    }
 }
+
+
 
 #email {
     max-width: 100%;
@@ -53,7 +74,7 @@ form {
     margin-top: 125px;
 
     @media  (max-width: ($breakpoint-xs - 1)) {
-        margin-top: 180px;
+        margin-top: 185px;
     }
 
     @media  (min-width: $breakpoint-sm) {
