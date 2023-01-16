@@ -194,11 +194,19 @@ $("body").on("dragover", function(e) {
 // set global variable to track the shift key state because aparently the submit event lacks the .shiftKey property.
 let shiftKey = false;
 $("body").on("keydown", function(e) {
-    shiftKey = true;
+    if (e.shiftKey) {
+        shiftKey = true;
+    } else {
+        shiftKey = false;
+    }
 });
 
 $("body").on("keyup", function(e) {
-    shiftKey = false;
+    if (e.shiftKey) {
+        shiftKey = true;
+    } else {
+        shiftKey = false;
+    }
 });
 
 // Drag and Drop completed
