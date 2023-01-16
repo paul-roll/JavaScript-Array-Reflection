@@ -38,6 +38,9 @@ form {
     #submit, #newImage {
         margin-top: 5px;
         padding: 4px 33px;
+        @media  (max-width: ($breakpoint-xs - 1)) {
+            width: 100%;
+        }
     }
 }
 
@@ -77,10 +80,10 @@ form {
     }
 
     margin-top: 220px;
-    @media  (min-width: 284px) {
+    @media  (min-width: $breakpoint-xs) {
         margin-top: 185px;
     }
-    @media  (min-width: $breakpoint-sm) {
+    @media  (min-width: $breakpoint-md) {
         margin-top: 230px;
     }
 }
@@ -107,7 +110,7 @@ form {
 
     width: calc(100% - 10px);
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-md) {
         display: flex;
         flex-flow: row;
         align-items: center;
@@ -128,7 +131,7 @@ form {
 #currentImage a, #currentImage a img {
     height: 150px;
     width: 150px;
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-md) {
         height: 200px;
         width: 200px;
     }
