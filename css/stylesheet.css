@@ -1,9 +1,9 @@
-/* line 1, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 1, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 body.lb-disable-scrolling {
   overflow: hidden;
 }
 
-/* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 5, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lightboxOverlay {
   position: absolute;
   top: 0;
@@ -15,7 +15,7 @@ body.lb-disable-scrolling {
   display: none;
 }
 
-/* line 16, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 16, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lightbox {
   position: absolute;
   left: 0;
@@ -27,7 +27,7 @@ body.lb-disable-scrolling {
   outline: none;
 }
 
-/* line 27, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 27, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lightbox .lb-image {
   display: block;
   height: auto;
@@ -38,12 +38,12 @@ body.lb-disable-scrolling {
   border: 4px solid white;
 }
 
-/* line 38, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 38, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lightbox a img {
   border: none;
 }
 
-/* line 42, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 42, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-outerContainer {
   position: relative;
   *zoom: 1;
@@ -56,14 +56,14 @@ body.lb-disable-scrolling {
   background-color: white;
 }
 
-/* line 55, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 55, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-outerContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 61, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 61, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-loader {
   position: absolute;
   top: 43%;
@@ -74,7 +74,7 @@ body.lb-disable-scrolling {
   line-height: 0;
 }
 
-/* line 71, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 71, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-cancel {
   display: block;
   width: 32px;
@@ -83,7 +83,7 @@ body.lb-disable-scrolling {
   background: url(../images/loading.gif) no-repeat;
 }
 
-/* line 79, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 79, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-nav {
   position: absolute;
   top: 0;
@@ -93,25 +93,25 @@ body.lb-disable-scrolling {
   z-index: 10;
 }
 
-/* line 88, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 88, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-container > .nav {
   left: 0;
 }
 
-/* line 92, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 92, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-nav a {
   outline: none;
   background-image: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
 }
 
-/* line 97, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 97, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-prev, .lb-next {
   height: 100%;
   cursor: pointer;
   display: block;
 }
 
-/* line 103, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 103, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-nav a.lb-prev {
   width: 34%;
   left: 0;
@@ -125,13 +125,13 @@ body.lb-disable-scrolling {
   transition: opacity 0.6s;
 }
 
-/* line 116, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 116, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-nav a.lb-prev:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
-/* line 121, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 121, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-nav a.lb-next {
   width: 64%;
   right: 0;
@@ -145,13 +145,13 @@ body.lb-disable-scrolling {
   transition: opacity 0.6s;
 }
 
-/* line 134, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 134, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-nav a.lb-next:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
-/* line 139, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 139, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-dataContainer {
   margin: 0 auto;
   padding-top: 5px;
@@ -161,20 +161,20 @@ body.lb-disable-scrolling {
   border-bottom-right-radius: 4px;
 }
 
-/* line 148, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 148, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-dataContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 154, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 154, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data {
   padding: 0 4px;
   color: #ccc;
 }
 
-/* line 159, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 159, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data .lb-details {
   width: 85%;
   float: left;
@@ -182,19 +182,19 @@ body.lb-disable-scrolling {
   line-height: 1.1em;
 }
 
-/* line 166, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 166, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
   line-height: 1em;
 }
 
-/* line 172, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 172, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data .lb-caption a {
   color: #4ae;
 }
 
-/* line 176, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 176, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data .lb-number {
   display: block;
   clear: left;
@@ -203,7 +203,7 @@ body.lb-disable-scrolling {
   color: #999999;
 }
 
-/* line 184, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 184, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data .lb-close {
   display: block;
   float: right;
@@ -220,26 +220,26 @@ body.lb-disable-scrolling {
   transition: opacity 0.2s;
 }
 
-/* line 200, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/css/lightbox.css */
+/* line 200, ../xampp/htdocs/JavaScript Array Reflection/css/lightbox.css */
 .lb-data .lb-close:hover {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
-/* line 8, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 8, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
-/* line 16, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 16, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 body {
   margin: 0;
 }
 
-/* line 26, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 26, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 article,
 aside,
 details,
@@ -255,7 +255,7 @@ summary {
   display: block;
 }
 
-/* line 45, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 45, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 audio,
 canvas,
 progress,
@@ -264,63 +264,63 @@ video {
   vertical-align: baseline;
 }
 
-/* line 57, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 57, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
 }
 
-/* line 66, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 66, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 [hidden],
 template {
   display: none;
 }
 
-/* line 75, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 a {
   background: transparent;
 }
 
-/* line 82, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 82, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 a:active,
 a:hover {
   outline: 0;
 }
 
-/* line 91, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 91, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 98, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 98, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 106, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 106, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 dfn {
   font-style: italic;
 }
 
-/* line 114, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 114, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-/* line 122, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 122, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 mark {
   background: #ff0;
   color: #000;
 }
 
-/* line 130, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 130, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 small {
   font-size: 80%;
 }
 
-/* line 137, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 137, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -329,44 +329,44 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 145, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 145, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 149, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 149, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 sub {
   bottom: -0.25em;
 }
 
-/* line 157, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 157, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 img {
   border: 0;
 }
 
-/* line 164, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 164, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* line 172, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 172, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 figure {
   margin: 1em 40px;
 }
 
-/* line 179, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 179, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
 
-/* line 188, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 188, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 pre {
   overflow: auto;
 }
 
-/* line 195, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 195, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 code,
 kbd,
 pre,
@@ -375,7 +375,7 @@ samp {
   font-size: 1em;
 }
 
-/* line 214, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 214, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 button,
 input,
 optgroup,
@@ -386,18 +386,18 @@ textarea {
   margin: 0;
 }
 
-/* line 227, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 227, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 button {
   overflow: visible;
 }
 
-/* line 237, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 237, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 button,
 select {
   text-transform: none;
 }
 
-/* line 249, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 249, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -406,25 +406,25 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-/* line 260, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 260, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
 }
 
-/* line 268, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 268, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
-/* line 278, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 278, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 input {
   line-height: normal;
 }
 
-/* line 284, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 284, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 *
 input[type="checkbox"],
 input[type="radio"] {
@@ -432,13 +432,13 @@ input[type="radio"] {
   padding: 0;
 }
 
-/* line 300, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 300, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
-/* line 310, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 310, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
@@ -446,76 +446,76 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-/* line 322, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 322, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/* line 330, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 330, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
 
-/* line 340, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 340, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 legend {
   border: 0;
   padding: 0;
 }
 
-/* line 348, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 348, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 textarea {
   overflow: auto;
 }
 
-/* line 356, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 356, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 optgroup {
   font-weight: bold;
 }
 
-/* line 364, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 364, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 369, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
+/* line 369, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_1.normalize.scss */
 td,
 th {
   padding: 0;
 }
 
-/* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+/* line 5, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_2.base.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+/* line 9, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_2.base.scss */
 html {
   font-family: 'Inter', sans-serif;
 }
 
-/* line 13, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+/* line 13, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_2.base.scss */
 .wrapper {
   padding: 15px;
   margin: 0 auto;
 }
 
 @media (min-width: 1126px) {
-  /* line 13, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/2.base/_2.base.scss */
+  /* line 13, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_2.base.scss */
   .wrapper {
     max-width: 1066px;
   }
 }
 
-/* line 5, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 5, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 body {
   background-color: #104b63;
 }
 
-/* line 9, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 9, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #message {
   position: fixed;
   z-index: 1;
@@ -527,17 +527,17 @@ body {
   display: none;
 }
 
-/* line 21, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 21, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 form {
   display: block;
 }
 
-/* line 25, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 25, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #email {
   max-width: 100%;
 }
 
-/* line 29, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 29, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .main,
 .sidebar,
 .footer {
@@ -545,24 +545,24 @@ form {
   padding: 15px;
 }
 
-/* line 36, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 36, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main {
   width: 100%;
   text-align: center;
 }
 
-/* line 39, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 39, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main h2 {
   word-wrap: break-word;
   margin-bottom: 0;
 }
 
-/* line 43, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 43, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #main p {
   margin-top: 0;
 }
 
-/* line 48, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 48, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .main {
   border-radius: 20px;
   display: flex;
@@ -570,30 +570,33 @@ form {
   margin-top: 125px;
 }
 
-@media (min-width: 600px) {
-  /* line 48, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+@media (max-width: 409px) {
+  /* line 48, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .main {
-    margin-top: 85px;
-  }
-  /* line 58, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
-  .main h2:first-of-type, .main p {
-    margin-left: 180px;
+    margin-top: 180px;
   }
 }
 
-/* line 64, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+@media (min-width: 520px) {
+  /* line 48, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .main {
+    margin-top: 230px;
+  }
+}
+
+/* line 66, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .footer {
   border-radius: 20px;
   background-color: #1b7ca4;
   text-align: center;
 }
 
-/* line 68, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 70, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .footer p {
   margin: 0;
 }
 
-/* line 73, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .sidebar {
   padding: 10px;
   border-top: none;
@@ -604,21 +607,55 @@ form {
   margin-top: -15px;
   position: fixed;
   width: 200px;
+  width: calc(100vw - 10px);
 }
 
-/* line 85, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+@media (min-width: 410px) {
+  /* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .sidebar {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 520px) {
+  /* line 75, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .sidebar {
+    width: 500px;
+  }
+}
+
+/* line 100, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a {
   color: black;
   display: inline-block;
   height: 100px;
 }
 
-/* line 89, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 104, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a img {
   pointer-events: none;
 }
 
-/* line 94, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+@media (max-width: 409px) {
+  /* line 109, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  #currentImage a, #currentImage a img {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media (min-width: 520px) {
+  /* line 109, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  #currentImage a, #currentImage a img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+/* line 120, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox {
   display: flex;
   flex-flow: row wrap;
@@ -626,18 +663,18 @@ form {
   margin-top: 20px;
 }
 
-/* line 99, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 125, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a {
   color: black;
   height: 100px;
 }
 
-/* line 102, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 128, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a img {
   pointer-events: none;
 }
 
-/* line 108, ../../Users/paulr/Desktop/Netmatters/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 134, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 img {
   box-shadow: 0 0 5px 1px;
 }

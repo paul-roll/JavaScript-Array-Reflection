@@ -52,13 +52,15 @@ form {
 
     margin-top: 125px;
 
-
-    @media (min-width: $breakpoint-sm) {
-        margin-top: 85px;
-        & h2:first-of-type, p {
-            margin-left: 180px;
-        }
+    @media  (max-width: ($breakpoint-xs - 1)) {
+        margin-top: 180px;
     }
+
+    @media  (min-width: $breakpoint-sm) {
+        margin-top: 230px;
+    }
+
+    
 }
 
 .footer {
@@ -80,14 +82,38 @@ form {
     margin-top: -15px;
     position: fixed;
     width: 200px;
+
+    width: calc(100vw - 10px);
+
+    @media (min-width: $breakpoint-xs) {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: 20px;
+
+    }
+    @media (min-width: $breakpoint-sm) {
+        width: 500px;
+    }
 }
 
 #currentImage a {
     color: black;
     display: inline-block;
-    height: 100px;  
+    height: 100px;
     img {
         pointer-events: none;
+    }
+}
+
+#currentImage a, #currentImage a img {
+    @media (max-width: ($breakpoint-xs - 1)) {
+        height: 150px;
+        width: 150px;
+    }
+    @media (min-width: $breakpoint-sm) {
+        height: 200px;
+        width: 200px;
     }
 }
 
