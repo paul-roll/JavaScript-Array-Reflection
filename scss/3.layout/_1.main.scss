@@ -70,8 +70,11 @@ form {
     border-radius: 20px;
     display: flex;
     background-color: darken($color-primary, 35%);
-
     margin-top: 125px;
+    .hr {
+        border: 1px solid black;
+        height: 1px;
+    }
 
     @media  (max-width: ($breakpoint-xs - 1)) {
         margin-top: 185px;
@@ -80,8 +83,6 @@ form {
     @media  (min-width: $breakpoint-sm) {
         margin-top: 230px;
     }
-
-    
 }
 
 .footer {

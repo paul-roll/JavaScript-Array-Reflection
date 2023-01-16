@@ -88,6 +88,9 @@ function displayArrays() {
     } else {
         // Loop through array and generate the html
         for (let emailIndex = 0; emailIndex < array.length; emailIndex++) {
+            if (emailIndex != 0) {
+                html += `<div class="hr"></div>`;
+            }
             html += `<h2>${array[emailIndex].email}</h2>`;
             html += `<div id="${emailIndex}" class="image-flexbox" oncontextmenu="return false;">`;
             for (let imageIndex = 0; imageIndex < array[emailIndex].images.length; imageIndex++) {
