@@ -595,6 +595,7 @@ form #submit, form #newImage {
   display: flex;
   background-color: #1b7ca4;
   margin-top: 125px;
+  margin-top: 220px;
 }
 
 /* line 74, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
@@ -603,7 +604,7 @@ form #submit, form #newImage {
   height: 1px;
 }
 
-@media (max-width: 409px) {
+@media (min-width: 284px) {
   /* line 69, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .main {
     margin-top: 185px;
@@ -643,52 +644,44 @@ form #submit, form #newImage {
   width: calc(100vw - 10px);
 }
 
-@media (min-width: 410px) {
+@media (min-width: 520px) {
   /* line 97, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   .sidebar {
     display: flex;
     flex-flow: row;
     align-items: center;
     gap: 20px;
-  }
-}
-
-@media (min-width: 520px) {
-  /* line 97, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
-  .sidebar {
     width: 500px;
   }
 }
 
-/* line 122, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 119, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a {
   color: black;
   display: inline-block;
   height: 100px;
 }
 
-/* line 126, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 123, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 #currentImage a img {
   pointer-events: none;
 }
 
-@media (max-width: 409px) {
-  /* line 131, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
-  #currentImage a, #currentImage a img {
-    height: 150px;
-    width: 150px;
-  }
+/* line 128, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+#currentImage a, #currentImage a img {
+  height: 150px;
+  width: 150px;
 }
 
 @media (min-width: 520px) {
-  /* line 131, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  /* line 128, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
   #currentImage a, #currentImage a img {
     height: 200px;
     width: 200px;
   }
 }
 
-/* line 142, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 137, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox {
   display: flex;
   flex-flow: row wrap;
@@ -696,18 +689,18 @@ form #submit, form #newImage {
   margin-top: 20px;
 }
 
-/* line 147, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 142, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a {
   color: black;
   height: 100px;
 }
 
-/* line 150, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 145, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a img {
   pointer-events: none;
 }
 
-/* line 156, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 151, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 img {
   box-shadow: 0 0 5px 1px;
 }
