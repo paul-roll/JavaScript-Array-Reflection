@@ -503,10 +503,10 @@ html {
   margin: 0 auto;
 }
 
-@media (min-width: 1126px) {
+@media (min-width: 1066px) {
   /* line 13, ../xampp/htdocs/JavaScript Array Reflection/scss/2.base/_2.base.scss */
   .wrapper {
-    max-width: 1066px;
+    max-width: calc(1006px + 60px);
   }
 }
 
