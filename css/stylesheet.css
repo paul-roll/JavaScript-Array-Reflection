@@ -641,7 +641,7 @@ form #submit, form #newImage {
   margin-top: -15px;
   position: fixed;
   width: 200px;
-  width: calc(100vw - 10px);
+  width: calc(100% - 10px);
 }
 
 @media (min-width: 520px) {
