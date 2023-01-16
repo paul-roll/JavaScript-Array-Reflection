@@ -191,6 +191,16 @@ $("body").on("dragover", function(e) {
     e.preventDefault();  
 });
 
+// set global variable to track the shift key state because aparently the submit event lacks the .shiftKey property.
+let shiftKey = false;
+$("body").on("keydown", function(e) {
+    shiftKey = true;
+});
+
+$("body").on("keyup", function(e) {
+    shiftKey = false;
+});
+
 // Drag and Drop completed
 $("body").on("drop", function(e) {
     // Valid drag source and destination
@@ -213,7 +223,9 @@ $("body").on("drop", function(e) {
                 sessionStorage.setObj("array", array);
                 displayArrays();
             }
-            getImage();
+            if (!e.shiftKey) {
+                getImage();
+            }
         } else if (!alreadyExists(e.target.parentNode.id, array[dragged.target.parentNode.id].images[dragged.target.id].id)) {
             // Drag to sidebar
             if ( e.target.parentNode.id === "currentImage" ) {
@@ -223,9 +235,11 @@ $("body").on("drop", function(e) {
             } else {
                 array[e.target.parentNode.id].images.splice(e.target.id, 0, array[dragged.target.parentNode.id].images[dragged.target.id]);
             }
-            array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
-                if (!array[dragged.target.parentNode.id].images.length) {
-                deleteEmail(dragged.target.parentNode.id);
+            if (!e.shiftKey) {
+                array[dragged.target.parentNode.id].images.splice(dragged.target.id, 1);
+                    if (!array[dragged.target.parentNode.id].images.length) {
+                    deleteEmail(dragged.target.parentNode.id);
+                }
             }
         }
         sessionStorage.setObj("array", array);
@@ -264,7 +278,9 @@ $("#form").submit(function(e) {
     if(validateEmail($("#form #email").val())) {
         addImage(getEmail($("#form #email").val()),  currentImage );
         displayArrays();
-        getImage();
+        if (!shiftKey) {
+            getImage();
+        }
     }
 });
 
