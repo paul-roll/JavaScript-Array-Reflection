@@ -138,8 +138,8 @@ form {
 }
 
 .image-flexbox {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
     padding-bottom: 20px;
     margin-top: 20px;
     @media (max-width: ($breakpoint-md - 1)) {

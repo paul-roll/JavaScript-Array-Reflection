@@ -690,8 +690,8 @@ form #submit, form #newImage {
 
 /* line 140, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
   padding-bottom: 20px;
   margin-top: 20px;
 }
