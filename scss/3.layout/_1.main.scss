@@ -142,6 +142,9 @@ form {
     flex-flow: row wrap;
     padding-bottom: 20px;
     margin-top: 20px;
+    @media (max-width: ($breakpoint-md - 1)) {
+        justify-content: center;
+    }
     a {
         color: black;
         height: 100px;

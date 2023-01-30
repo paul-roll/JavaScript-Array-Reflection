@@ -696,18 +696,25 @@ form #submit, form #newImage {
   margin-top: 20px;
 }
 
-/* line 145, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+@media (max-width: 519px) {
+  /* line 140, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+  .image-flexbox {
+    justify-content: center;
+  }
+}
+
+/* line 148, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a {
   color: black;
   height: 100px;
 }
 
-/* line 148, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 151, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 .image-flexbox a img {
   pointer-events: none;
 }
 
-/* line 154, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
+/* line 157, ../xampp/htdocs/JavaScript Array Reflection/scss/3.layout/_1.main.scss */
 img {
   box-shadow: 0 0 5px 1px;
 }
